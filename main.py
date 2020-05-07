@@ -177,8 +177,9 @@ def get_com(d2, d3):
             page_id = '!8i%d'%page
             headers = {'User-Agent':random.choice(agents)}
             response = requests.get(url.format(d1,d2,d3)+pb.format(page_id), headers = headers)
-            all_result = all_result + get_allcom(response)
-            if len(get_allcom(response)) != 0:
+            result = get_allcom(response)
+            all_result += result
+            if len(result) != 0:
                 page+=20
             else:
                 break
